@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <com.camerakit.CameraKitView
+        android:id="@+id/vCamera"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:keepScreenOn="true"
+        app:camera_facing="back"
+        app:camera_flash="auto"
+        app:camera_focus="continuous"
+        app:camera_permissions="camera"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/topFrame"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#99000000"
+        app:layout_constraintBottom_toTopOf="@id/centerFrame"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/ivPreview"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="32dp"
+        android:background="#000000"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toTopOf="@+id/centerFrame"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintStart_toStartOf="@+id/topFrame"
+        app:layout_constraintTop_toTopOf="@+id/topFrame"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#000000"
+        android:gravity="center"
+        android:padding="2dp"
+        android:text="Photo"
+        android:textColor="#ffffff"
+        android:textSize="11sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/ivPreview"
+        app:layout_constraintStart_toStartOf="@+id/ivPreview"
+        app:layout_constraintTop_toBottomOf="@id/ivPreview" />
+
+    <ImageView
+        android:id="@+id/ivFinalPreview"
+        android:layout_width="84dp"
+        android:layout_height="84dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:background="#000000"
+        android:scaleType="centerCrop"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintStart_toEndOf="@+id/ivPreview"
+        app:layout_constraintTop_toTopOf="@+id/topFrame"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#000000"
+        android:gravity="center"
+        android:padding="2dp"
+        android:text="Preprocessed (28x28 px)"
+        android:textColor="#ffffff"
+        android:textSize="11sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/ivFinalPreview"
+        app:layout_constraintStart_toStartOf="@+id/ivFinalPreview"
+        app:layout_constraintTop_toBottomOf="@id/ivFinalPreview" />
+
+
+    <TextView
+        android:id="@+id/tvClassification"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="#333333"
+        android:gravity="center"
+        android:minHeight="56dp"
+        android:padding="4dp"
+        android:textColor="#ffffff"
+        app:layout_constraintEnd_toEndOf="@+id/topFrame"
+        app:layout_constraintStart_toEndOf="@+id/ivFinalPreview"
+        app:layout_constraintTop_toTopOf="@id/ivFinalPreview"
+        tools:text="Classification" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="#000000"
+        android:gravity="center"
+        android:padding="2dp"
+        android:text="Classification"
+        android:textColor="#ffffff"
+        android:textSize="11sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/topFrame"
+        app:layout_constraintStart_toEndOf="@+id/ivFinalPreview"
+        app:layout_constraintTop_toBottomOf="@id/tvClassification" />
+
+    <View
+        android:id="@+id/centerFrame"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:background="#00000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/bottomFrame"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#99000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/centerFrame" />
+
+    <Button
+        android:id="@+id/btnTakePhoto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Take photo"
+        app:layout_constraintBottom_toBottomOf="@+id/bottomFrame"
+        app:layout_constraintEnd_toEndOf="@+id/bottomFrame"
+        app:layout_constraintStart_toStartOf="@+id/bottomFrame"
+        app:layout_constraintTop_toTopOf="@+id/bottomFrame" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
