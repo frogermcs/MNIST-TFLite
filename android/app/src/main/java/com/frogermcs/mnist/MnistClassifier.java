@@ -24,13 +24,13 @@ public class MnistClassifier {
     private MnistClassifier(Interpreter interpreter) {
         this.interpreter = interpreter;
     }
-
+    
     public static MnistClassifier classifier(AssetManager assetManager, String modelPath) throws IOException {
         ByteBuffer byteBuffer = loadModelFile(assetManager, modelPath);
         Interpreter interpreter = new Interpreter(byteBuffer);
         return new MnistClassifier(interpreter);
     }
-
+    
     private static ByteBuffer loadModelFile(AssetManager assetManager, String modelPath) throws IOException {
         AssetFileDescriptor fileDescriptor = assetManager.openFd(modelPath);
         FileInputStream inputStream = new FileInputStream(fileDescriptor.getFileDescriptor());

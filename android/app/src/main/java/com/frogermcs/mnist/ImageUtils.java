@@ -18,7 +18,7 @@ public class ImageUtils {
 
     /**
      * Make bitmap appropriate size, greyscale and inverted. MNIST model is originally teached on
-     * dataset of images 28x28px with white letter written on black background. 
+     * dataset of images 28x28px with white letter written on black background.
      */
     public static Bitmap prepareImageForClassification(Bitmap bitmap) {
         ColorMatrix colorMatrix = new ColorMatrix();

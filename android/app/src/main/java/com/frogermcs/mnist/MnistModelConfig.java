@@ -4,6 +4,9 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * The most of those information can be found in MNIST.ipynb 
+ */
 public class MnistModelConfig {
     public static String MODEL_FILENAME = "mnist_model.tflite";
 
