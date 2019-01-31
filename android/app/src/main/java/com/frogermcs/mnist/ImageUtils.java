@@ -16,6 +16,16 @@ public class ImageUtils {
                     0, 0, 0, 1, 0
             });
 
+    private static final ColorMatrix BLACKWHITE = new ColorMatrix(
+            new float[]{
+                    0.5f, 0.5f, 0.5f, 0, 0,
+                    0.5f, 0.5f, 0.5f, 0, 0,
+                    0.5f, 0.5f, 0.5f, 0, 0,
+                    0, 0, 0, 1, 0,
+                    -1, -1, -1, 0, 1
+            }
+    );
+
     /**
      * Make bitmap appropriate size, greyscale and inverted. MNIST model is originally teached on
      * dataset of images 28x28px with white letter written on black background.
@@ -23,6 +33,7 @@ public class ImageUtils {
     public static Bitmap prepareImageForClassification(Bitmap bitmap) {
         ColorMatrix colorMatrix = new ColorMatrix();
         colorMatrix.setSaturation(0);
+        colorMatrix.postConcat(BLACKWHITE);
         colorMatrix.postConcat(INVERT);
         ColorMatrixColorFilter f = new ColorMatrixColorFilter(colorMatrix);
 
